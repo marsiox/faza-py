@@ -12,6 +12,7 @@
           <div class="footer-search-form">
             <div class="form">
               <form action="/submit-email" method="post">
+                {% csrf_token %}
                 <input placeholder="jan.kowalski@email.com" id="email" name="email" class="form-control first" type="text">
                 <input type="submit" class="bttn" value="Wyślij" type="text">
               </form>

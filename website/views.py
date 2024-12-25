@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
+from django.http import HttpResponse
 
 def dynamic(request, name):
   templates = {
@@ -27,3 +30,23 @@ def dynamic(request, name):
     "content_template": template_name,
     "title": page_titles.get(name, "404")
   })
+
+def submit_email(request):
+  if request.method == 'POST':
+    email = request.POST.get('email')
+
+    if email:
+      try:
+        send_mail(
+          subject="Email ze strony Faza-Ekspert",
+          message=email,
+          from_email=settings.EMAIL_HOST_USER,
+          recipient_list=[settings.EMAIL_TO],
+          fail_silently=False,
+        )
+        return HttpResponse("Dziękujemy <a href='/'>wróć na stronę główną</a>")
+      except Exception as e:
+        return HttpResponse(f"Failed to send email: {str(e)}")
+    else:
+      return HttpResponse("Invalid email address!")
+  return HttpResponse("Invalid request method.")
