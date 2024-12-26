@@ -29,7 +29,10 @@ SECRET_KEY = "django-insecure--z6dhen$w9@ffhh8o2c89)+q(dbu%l0&_rj)8ko*=246r%el$%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  "faza-ekspert.pl",
+  "ec2-18-153-223-137.eu-central-1.compute.amazonaws.com:8000"
+]
 
 
 # Application definition
