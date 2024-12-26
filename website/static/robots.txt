@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://faza-ekspert.pl/sitemap.xml
