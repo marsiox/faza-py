@@ -1,34 +1,4 @@
 /*
-    Template Name    : Electricshop
-	Description		 : Responsive Electrical Template
-    Version          : 1.0
-*/
-
-/*
-================================================
-/* Table of Content
-==================================================
-
-1. Fonts - Roboto and Raleway
-2. Common CSS
-3. Loader CSS
-4. Top Wrapper
-5. Header Inner
-6. Slider Area
-7. CTA Wrapper
-14. Counters
-15. News Wrapper
-16. Breadcrumb Wrapper
-17. Inner page Wrapper
-18. Gallery
-19. FAQ Wrapper
-20. Error Page
-21. Countdown Page
-22. Contact Wrapper
-23. Footer Wrapper
-24. Media Quires
-
-/*
 ================================================
 1. Fonts - Roboto and Raleway
 ================================================
@@ -241,6 +211,8 @@ img.img-content-left {
 	-webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 	transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
+
+.google-map
 /*
 ================================================
 3. Loader CSS
@@ -1732,108 +1704,17 @@ header.sticky .header-menu {
 22. Contact Wrapper
 ================================================
 */
-.contact-wrapper {
-    padding:73px 0 160px;
-}
-.contact-wrapper .contact-form {
-  display:inline-block;
-  width:100%;
-  margin:0 0 54px;
-}
-.contact-wrapper textarea {
-  border: 1px solid #cccccc;
-  line-height: 10px;
-  margin-bottom: 20px;
-  outline: inherit;
-  padding: 10px 0 10px 20px;
-  width: 100%;
-  height:140px;
-}
-.contact-wrapper .submit-area {
-  text-align:center;
-}
-.contact-wrapper .btn:before {
-  border-radius:30px;
-}
-.contact-wrapper .btn-one {
-  background: #212121 none repeat scroll 0 0;
-  border: 2px solid #212121;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 16px;
-  margin: 0 0 20px;
-  padding: 8px 30px;
-  text-transform: uppercase;
-  transition: all 0.3s ease 0s;
-}
-.contact-wrapper .btn-one:hover, .contact-wrapper .btn-one:focus {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  border: 2px solid #212121;
-  color: #212121;
-}
+
 /** Google Map **/
 .google-map {
-  float: left;
-  margin: 80px 0 0;
   width: 100%;
+  height: 100%;
   position:relative;
 }
 .google-map iframe {
   border: medium none;
-  height: 750px;
-  margin: 0 0 -6px;
   width: 100%;
-}
-/** Contact Info **/
-.contact-info-main {
-    bottom: auto;
-    float: left;
-    position: absolute;
-    top: -80px;
-    width: 100%;
-}
-.contact-info {
-    background: #ffcb37;
-    border-radius: 10px;
-    padding: 50px 80px;
-    width: 100%;
-}
-.contact-info .title {
-    margin:0;
-}
-.contact-info .title .border {
-   background:#212121;
-   height:1px;
-   width:150px;
-   display:inline-block;
-}
-.contact-info .title h2:after {
-    display:none;
-}
-.contact-box-img {
-    width:auto;
-	text-align:center;
-	margin-top: -6px;
-}
-.contact-box.border {
-  margin-bottom: 50px;
-  padding-bottom: 40px;
-  position: relative;
-}
-.contact-box img {
-  margin:0 0 10px;
-}
-.contact-box h3 {
-  font-weight:700;
-  margin:0 0 5px;
-  font-size:20px;
-  color:#2d4966;
-}
-.contact-box a {
-  color:#2d4966;
-}
-.contact-box p {
-  line-height:22px;
+  height: 400px;
 }
 /*
 ================================================
@@ -2426,118 +2307,4 @@ footer .address ul li::before {
     float: none;
     text-align: center;
   }
-}
-
-/*
-================================================
-20. Error Page
-================================================
-*/
-.error-page {
-  background-image: url("http://via.placeholder.com/1900x1050/000/fff");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  position: relative;
-  width: 100%;
-}
-.error-page .error-part::after {
-  background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.error-page .error-part {
-  display: table;
-  height: 100%;
-  text-align: center;
-  width: 100%;
-}
-.error-page .error-part .error-text {
-  display: table-cell;
-  position: relative;
-  vertical-align: middle;
-  width: 100%;
-  z-index: 1;
-}
-.error-page .error-part .error-text .error-logo {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.error-page .error-part .error-text .error-logo img {
-  background:#fff;
-  border-radius:15px;
-  padding:10px 15px;
-}
-.error-page .error-part .error-text .error-code {
-  color: #ffcb36;
-  font-size: 100px;
-  font-weight: bold;
-  line-height: 1;
-  margin: 0 0 10px;
-  padding: 0;
-}
-.error-page .error-part .error-text .error-message {
-  color: #ffffff;
-  font-size: 24px;
-  line-height: 1;
-  margin-bottom: 20px;
-}
-.error-page .error-part .error-text a {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-/*
-================================================
-10. Join Wrapper
-================================================
-*/
-.join-wrapper:before {
-  background: #000000;
-  bottom: 0;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-.join-wrapper {
-  float: left;
-  padding: 71px 0 80px;
-  position: relative;
-  width: 100%;
-  z-index: 9;
-  background-size:100%;
-}
-.join-wrapper h3 {
-  font-size: 40px;
-  color:#fff;
-  font-weight:500;
-}
-.join-wrapper h3 span {
-  display:block;
-  font-size: 50px;
-  color:#ffcb36;
-  font-weight:800;
-}
-.join-wrapper a {
-   display:inline-block;
-   padding:6px 30px;
-   color:#fff;
-   font-size:18px;
-   border:2px solid #f9be4a;
-   border-radius:6px;
-   margin:10px 0 0;
-}
-.join-wrapper a:hover, .join-wrapper a:focus {
-   border:2px solid #f9be4a;
-   background:#f9be4a;
-   color:#000;
 }
