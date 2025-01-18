@@ -464,6 +464,55 @@ header.sticky .header-menu {
 
 /*
 ================================================
+10. Join Wrapper
+================================================
+*/
+.join-wrapper:before {
+  background: #000000;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.join-wrapper {
+  float: left;
+  padding: 71px 0 80px;
+  position: relative;
+  width: 100%;
+  z-index: 9;
+  background-size:100%;
+}
+.join-wrapper h3 {
+  font-size: 40px;
+  color:#fff;
+  font-weight:500;
+}
+.join-wrapper h3 span {
+  display:block;
+  font-size: 50px;
+  color:#ffcb36;
+  font-weight:800;
+}
+.join-wrapper a {
+   display:inline-block;
+   padding:6px 30px;
+   color:#fff;
+   font-size:18px;
+   border:2px solid #f9be4a;
+   border-radius:6px;
+   margin:10px 0 0;
+}
+.join-wrapper a:hover, .join-wrapper a:focus {
+   border:2px solid #f9be4a;
+   background:#f9be4a;
+   color:#000;
+}
+
+/*
+================================================
 13. Testimonials Wrapper
 ================================================
 */
