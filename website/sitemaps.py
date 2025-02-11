@@ -13,7 +13,8 @@ class StaticViewSitemap(Sitemap):
         "usługi-elektryczne",
         "pomiary-elektryczne",
         "pogotowie-elektryczne-trójmiasto",
-        "instalacje-elektryczne"
+        "instalacje-elektryczne",
+        "wycena",
       ]
 
     def location(self, item):
