@@ -11,7 +11,7 @@ sitemaps = {
 
 urlpatterns = [
   path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-  path('submit-email', views.submit_email, name='submit_email'),
+  path("wycena", views.wycena, name="wycena"),
   path("", views.dynamic, {"name": "home"}, name="home"),
   path("<str:name>", views.dynamic, name="dynamic"),
 ]

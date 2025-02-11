@@ -1,0 +1,66 @@
+<div class="inner-page-wrapper">
+  <div class="container">
+    <h1>Wyceń koszt nowej instalacji elektrycznej</h1>
+    <div class="alert alert-info">
+      <h4>Wypełnij poniższy formularz, aby oszacować cenę nowej instalacji elektrycznej w Twoim lokalu.</h4>
+    </div>
+
+    <form class="form-horizontal faza-form" action="/wycena" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="phases" class="col-sm-3 control-label">Rodzaj instalacji:</label>
+        <div class="col-sm-9">
+          <div class="radio" id="phases" name="phases">
+            <label>
+              <input type="radio" value="3" id="tri-phase" name="phases" checked /> Trójfazowa
+            </label>
+            <label  style="margin-left: 12px;">
+              <input type="radio" value="1" id="single-phase" name="phases" /> Jednofazowa
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rooms" class="col-sm-3 control-label">Ilość pomieszczeń:</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="rooms" name="rooms" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sockets" class="col-sm-3 control-label">Ilość wszystkich gniazd:</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="sockets" name="sockets" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lights" class="col-sm-3 control-label">Ilość punktów óswietlenia:</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" id="lights" name="lights" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="washing-machine" class="col-sm-3 control-label">Gniazdo pralki:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" id="washing-machine" name="washing-machine" class="checkbox-lg" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="oven" class="col-sm-3 control-label">Gniazdo piekarnika:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" id="oven" name="oven" class="checkbox-lg" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fridge" class="col-sm-3 control-label">Gniazdo lodówki:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" id="fridge" name="fridge" class="checkbox-lg" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-9 text-left">
+          <input type="submit" class="btn btn-primary" value="Wyceń instalację" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

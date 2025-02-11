@@ -3,21 +3,13 @@
   <div class="container">
     <div class="row">
       <div class="search-wrapper hidden-xs">
-        <div class="col-sm-6">
+        <div class="col-sm-8">
           <div class="search-inner-text">
-            <h3>Chcesz otrzymać wycenę? <span>Podaj nam swój E-mail</span></h3>
+            <h3>Chcesz otrzymać wycenę? <span>Skorzystaj z kalkulatora wycen</span></h3>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="footer-search-form">
-            <div class="form">
-              <form action="/submit-email" method="post">
-                {% csrf_token %}
-                <input placeholder="jan.kowalski@email.com" id="email" name="email" class="form-control first" type="text">
-                <input type="submit" class="bttn" value="Wyślij" type="text">
-              </form>
-            </div>
-          </div>
+        <div class="col-sm-4 text-right">
+          <a href="/wycena" class="btn-standard"><i class="fa-solid fa-pen-ruler"></i>Wyceń swój projekt</a>
         </div>
       </div>
     </div>
@@ -30,7 +22,7 @@
               <li> <a href="o-nas">O nas</a> </li>
               <li> <a href="usługi-elektryczne">Usługi</a> </li>
               <li> <a href="pogotowie-elektryczne-trójmiasto">Pogotowie elektryczne Gdańsk Gdynia Sopot</a> </li>
-              <li> <a href="pomiary-elektryczne">Informacje o pomiarach elektrycznych</a> </li>
+              <li> <a href="pomiary-elektryczne">Pomiary elektryczne</a> </li>
             </ul>
           </div>
         </div>
