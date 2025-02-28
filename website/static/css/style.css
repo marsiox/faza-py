@@ -961,11 +961,11 @@ header.sticky .header-menu {
 	float: left;
 	position: relative;
 	padding: 0;
-  background-image: url("../images/pomiary-elektryczne-hero.jpg");
+  background-image: url("../images/elektryk.jpg");
 	background-size: cover;
 }
 .banner-wrapper .banner-inner {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
 }
 /* Slides backgrounds */
 #first-slider .main-container {

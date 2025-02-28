@@ -65,8 +65,9 @@ def calculate_quotation(request):
   phases = int(phases_str) if phases_str else 0
 
   has_washing_machine = request.POST.get("washing-machine") == "on"
-  has_oven = request.POST.get("oven") == "on"
+  has_induction = request.POST.get("induction") == "on"
   has_fridge = request.POST.get("fridge") == "on"
+  has_dryer = request.POST.get("dryer") == "on"
 
   # Validate input
   if rooms < 1:
@@ -82,36 +83,38 @@ def calculate_quotation(request):
 
   # Define costs
   MEASUREMENT_COST = 300
-  CIRCUIT_BREAKER_COST = 20
+  CIRCUIT_BREAKER_COST = 18
   AVG_CABLE_COST = 5
-  LABOUR_PER_POINT_COST = 120
+  LABOUR_PER_POINT_COST = 145
 
   # Calculate cable length
 
-  total_cable_length = rooms * 20
+  total_cable_length = rooms * 25
   cables_cost = total_cable_length * AVG_CABLE_COST
-  hardware_cost = cables_cost + (sockets + lights) * 22
+  hardware_cost = cables_cost + ((sockets + lights) * 22)
 
   # Calculate costs
 
   extra_circuits = 0
   if has_washing_machine:
     extra_circuits += 1
-  if has_oven:
+  if has_induction:
     extra_circuits += 1
   if has_fridge:
     extra_circuits += 1
+  if has_dryer:
+    extra_circuits += 1
 
-  extra_circuits_cost = extra_circuits * 100
+  extra_circuits_cost = extra_circuits * 200
 
   # Calculate circuits
-  circuits = rooms * 2.5 + extra_circuits
+  circuits = rooms * 2 + extra_circuits
 
   circuit_breakers_cost = circuits * CIRCUIT_BREAKER_COST
-  rcds_cost = (200 * phases) + 200
+  rcds_cost = (200 * phases) + 300
   labour_cost = (sockets + lights) * LABOUR_PER_POINT_COST
 
-  distribution_board_cost = circuit_breakers_cost + rcds_cost + 500
+  distribution_board_cost = circuit_breakers_cost + rcds_cost + 600
 
   total_cost = (
     extra_circuits_cost +
