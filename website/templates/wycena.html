@@ -1,72 +1,170 @@
 <div class="inner-page-wrapper">
   <div class="container">
-    <h1>Wyceń koszt nowej instalacji elektrycznej</h1>
-    <div class="alert alert-info">
-      <h4>Wypełnij poniższy formularz, aby oszacować cenę nowej instalacji elektrycznej w Twoim lokalu.</h4>
-    </div>
+    <div id="quotation-form-wrapper">
+      <h1>Wyceń koszt nowej instalacji elektrycznej</h1>
+      <div class="alert alert-info">
+        <h4>Wypełnij poniższy formularz, aby oszacować cenę nowej instalacji elektrycznej w Twoim lokalu.</h4>
+      </div>
 
-    <form class="form-horizontal faza-form" action="/wycena" method="post">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="phases" class="col-sm-3 control-label">Rodzaj instalacji:</label>
-        <div class="col-sm-9">
-          <div class="radio" id="phases" name="phases">
-            <label>
-              <input type="radio" value="3" id="tri-phase" name="phases" checked /> Trójfazowa
-            </label>
-            <label  style="margin-left: 12px;">
-              <input type="radio" value="1" id="single-phase" name="phases" /> Jednofazowa
-            </label>
+      <form class="form-horizontal faza-form" id="quotation-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="phases" class="col-sm-3 control-label">Rodzaj instalacji:</label>
+          <div class="col-sm-9">
+            <div class="radio" id="phases" name="phases">
+              <label>
+                <input type="radio" value="3" id="tri-phase" name="phases" checked /> Trójfazowa
+              </label>
+              <label  style="margin-left: 12px;">
+                <input type="radio" value="1" id="single-phase" name="phases" /> Jednofazowa
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="rooms" class="col-sm-3 control-label">Ilość pomieszczeń:</label>
-        <div class="col-sm-9">
-          <input type="number" class="form-control" id="rooms" name="rooms" />
+        <div class="form-group">
+          <label for="rooms" class="col-sm-3 control-label">Ilość pomieszczeń:</label>
+          <div class="col-sm-9">
+            <div class="slider-container">
+              <input type="range" min="1" max="20" value="5" class="slider" id="rooms" name="rooms" style="width: 50%;" />
+              <span id="rooms-value">5</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="sockets" class="col-sm-3 control-label">Ilość wszystkich gniazd:</label>
-        <div class="col-sm-9">
-          <input type="number" class="form-control" id="sockets" name="sockets" />
+        <div class="form-group">
+          <label for="sockets" class="col-sm-3 control-label">Ilość wszystkich gniazd:</label>
+          <div class="col-sm-9">
+            <div class="slider-container">
+              <input type="range" min="1" max="200" value="30" class="slider" id="sockets" name="sockets" style="width: 50%;" />
+              <span id="sockets-value">30</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="lights" class="col-sm-3 control-label">Ilość punktów óswietlenia:</label>
-        <div class="col-sm-9">
-          <input type="number" class="form-control" id="lights" name="lights" />
+        <div class="form-group">
+          <label for="lights" class="col-sm-3 control-label">Ilość punktów óswietlenia:</label>
+          <div class="col-sm-9">
+            <div class="slider-container">
+              <input type="range" min="0" max="100" value="10" class="slider" id="lights" name="lights" style="width: 50%;" />
+              <span id="lights-value">10</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="washing-machine" class="col-sm-3 control-label">Pralka:</label>
-        <div class="col-sm-9">
-          <input type="checkbox" id="washing-machine" name="washing-machine" class="checkbox-lg" />
+        <div class="form-group">
+          <label for="has_washing_machine" class="col-sm-3 control-label">Pralka:</label>
+          <div class="col-sm-9">
+            <input type="checkbox" id="has_washing_machine" name="has_washing_machine" class="checkbox-lg" checked />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="dryer" class="col-sm-3 control-label">Suszarka do ubrań:</label>
-        <div class="col-sm-9">
-          <input type="checkbox" id="washing-machine" name="washing-machine" class="checkbox-lg" />
+        <div class="form-group">
+          <label for="has_dryer" class="col-sm-3 control-label">Suszarka do ubrań:</label>
+          <div class="col-sm-9">
+            <input type="checkbox" id="has_dryer" name="has_dryer" class="checkbox-lg" />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="induction" class="col-sm-3 control-label">Płyta indukcyjna:</label>
-        <div class="col-sm-9">
-          <input type="checkbox" id="oven" name="oven" class="checkbox-lg" />
+        <div class="form-group">
+          <label for="has_induction" class="col-sm-3 control-label">Płyta indukcyjna:</label>
+          <div class="col-sm-9">
+            <input type="checkbox" id="has_induction" name="has_induction" class="checkbox-lg" />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="fridge" class="col-sm-3 control-label">Lodówka:</label>
-        <div class="col-sm-9">
-          <input type="checkbox" id="fridge" name="fridge" class="checkbox-lg" />
+        <div class="form-group">
+          <label for="has_fridge" class="col-sm-3 control-label">Lodówka:</label>
+          <div class="col-sm-9">
+            <input type="checkbox" id="has_fridge" name="has_fridge" class="checkbox-lg" />
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-9 text-left">
-          <input type="submit" class="btn btn-primary" value="Wyceń instalację" />
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-9 text-left">
+            <button type="button" class="btn-standard" onclick="getQuotation()">Wyceń instalację</button>
+          </div>
         </div>
+      </form>
+    </div>
+
+    <div id="quotation-result" style="display: none;">
+      <div class="container">
+        <h1>Wycena instalacji</h1>
+          <div class="alert alert-info">
+            Ceny nie zawierają podatku VAT i są cenami orientacyjnymi, mogą ulec zmianie w zależności od indywidualnych warunków instalacji.
+          </div>
+          <h3>Twoja szacunkowa wycena wynosi: <b><span id="total-cost">{{ total_cost }}</span> zł</b></h3>
+          <br/>
+          <h4>Skład kosztów:</h4>
+          <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Koszt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rozdzielnica</td>
+                    <td id="distribution-board-cost">{{ distribution_board_cost }} zł</td>
+                </tr>
+                <tr>
+                    <td>Materiały</td>
+                    <td id="hardware-cost">{{ hardware_cost }} zł</td>
+                </tr>
+                <tr>
+                    <td>Dodatkowe obwody</td>
+                    <td id="extra-circuits-cost">{{ extra_circuits_cost }} zł</td>
+                </tr>
+                <tr>
+                    <td>Pomiar i certyfikat</td>
+                    <td id="measurement-cost">{{ measurement_cost }} zł</td>
+                </tr>
+                <tr>
+                  <td>Robocizna</td>
+                  <td id="labour-cost">{{ labour_cost }} zł</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><a href="/wycena"><< powrót</a></p>
+
       </div>
-    </form>
+    </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('rooms').addEventListener('input', function() {
+    document.getElementById('rooms-value').innerText = this.value;
+  });
+
+  document.getElementById('sockets').addEventListener('input', function() {
+    document.getElementById('sockets-value').innerText = this.value;
+  });
+
+  document.getElementById('lights').addEventListener('input', function() {
+    document.getElementById('lights-value').innerText = this.value;
+  });
+
+  function getQuotation() {
+    const form = document.getElementById('quotation-form');
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData);
+
+    fetch(`/api/get-a-quote/?${params.toString()}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        if (data.priceBreakdown) {
+          document.getElementById('distribution-board-cost').innerText = data.priceBreakdown.distribution_board_cost;
+          document.getElementById('hardware-cost').innerText = data.priceBreakdown.hardware_cost;
+          document.getElementById('extra-circuits-cost').innerText = data.priceBreakdown.extra_circuits_cost;
+          document.getElementById('measurement-cost').innerText = data.priceBreakdown.measurement_cost;
+          document.getElementById('labour-cost').innerText = data.priceBreakdown.labour_cost;
+          document.getElementById('total-cost').innerText = data.priceBreakdown.total_cost;
+          document.getElementById('quotation-form-wrapper').style.display = 'none';
+          document.getElementById('quotation-result').style.display = 'block';
+        } else {
+          alert('Błąd podczas obliczania wyceny. Proszę spróbować ponownie.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Błąd podczas obliczania wyceny. Proszę spróbować ponownie.');
+      });
+  }
+</script>

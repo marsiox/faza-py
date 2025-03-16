@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'django.contrib.sitemaps',
     'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,5 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+API_BASE_URL = 'localhost:8000'
