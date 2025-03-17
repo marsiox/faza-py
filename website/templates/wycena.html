@@ -1,5 +1,8 @@
 <div class="inner-page-wrapper">
   <div class="container">
+    <!-- Loading Modal -->
+    <div id="loader-wrapper" style="display: none;"><div id="loader"></div></div>
+
     <div id="quotation-form-wrapper">
       <h1>Wyceń koszt nowej instalacji elektrycznej</h1>
       <div class="alert alert-info">
@@ -140,15 +143,25 @@
     document.getElementById('lights-value').innerText = this.value;
   });
 
+  function showLoadingModal() {
+    document.getElementById('loader-wrapper').style.display = 'block';
+  }
+
+  function hideLoadingModal() {
+    document.getElementById('loader-wrapper').style.display = 'none';
+  }
+
   function getQuotation() {
     const form = document.getElementById('quotation-form');
     const formData = new FormData(form);
     const params = new URLSearchParams(formData);
 
+    showLoadingModal(); // Show the loading modal
+
     fetch(`/api/get-a-quote/?${params.toString()}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        hideLoadingModal(); // Hide the loading modal
         if (data.priceBreakdown) {
           document.getElementById('distribution-board-cost').innerText = data.priceBreakdown.distribution_board_cost;
           document.getElementById('hardware-cost').innerText = data.priceBreakdown.hardware_cost;
@@ -163,6 +176,7 @@
         }
       })
       .catch(error => {
+        hideLoadingModal(); // Hide the loading modal
         console.error('Error:', error);
         alert('Błąd podczas obliczania wyceny. Proszę spróbować ponownie.');
       });
