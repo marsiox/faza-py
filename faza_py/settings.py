@@ -151,3 +151,14 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 API_BASE_URL = 'localhost:8000'
+
+
+# Sentry
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://ab0880375ab4528a441d39b576a64d9c@o4508991683035136.ingest.de.sentry.io/4508991685197904",
+    # Add data like request headers and IP for users,
+    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
+    send_default_pii=True,
+)
