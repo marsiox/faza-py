@@ -31,6 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
   "faza-ekspert.pl",
+  "18.153.223.137",
   "ec2-18-153-223-137.eu-central-1.compute.amazonaws.com:8000",
   "ec2-18-153-223-137.eu-central-1.compute.amazonaws.com",
   "127.0.0.1",
