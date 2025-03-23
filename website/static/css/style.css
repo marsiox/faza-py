@@ -1,9 +1,10 @@
 /*
 ================================================
-1. Fonts - Roboto and Raleway
+1. Fonts
 ================================================
 */
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800|Roboto:300,400,600,700');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 /*
 ================================================
 2. Common CSS
@@ -14,19 +15,22 @@
 	padding: 0;
 }
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: "Noto Sans", sans-serif;
 	font-size: 16px;
 	line-height: 1.57143;
 	font-weight: 400;
 	color: #2d2e2e;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Raleway', sans-serif;
+  font-family: "Rubik", sans-serif;
 	margin-top: 0;
+}
+h2 {
+  font-weight: 500;
 }
 h4 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
 }
 a {
 	color: #0e4ca3;
@@ -113,7 +117,6 @@ div.title {
 div.title h2 {
   color: #212121;
   font-size: 40px;
-  font-weight: 700;
   margin: 0;
 }
 div.title h2::after {
@@ -511,13 +514,13 @@ header.sticky .header-menu {
 .join-wrapper h3 {
   font-size: 40px;
   color:#fff;
-  font-weight:500;
+  font-weight:300;
 }
 .join-wrapper h3 span {
   display:block;
   font-size: 50px;
   color:#ffcb36;
-  font-weight:800;
+  font-weight:500;
 }
 .join-wrapper a {
    display:inline-block;
@@ -764,8 +767,6 @@ header.sticky .header-menu {
 .our-services-text h3 {
 	color: #212121;
 	font-size: 18px;
-	font-weight: 700;
-	letter-spacing: 1px;
 	margin-bottom: 8px;
 	position: relative;
 	line-height: 22px;
@@ -1024,7 +1025,6 @@ header.sticky .header-menu {
   animation-delay: 1s;
 	color: #ffcb36;
 	font-size: 50px;
-	font-weight: 700;
 	line-height: 52px;
 	margin: 0 0 10px;
 	padding: 0;
@@ -1140,18 +1140,13 @@ header.sticky .header-menu {
   margin-top: 14px;
   color:#212121;
   font-size:30px;
-  /* font-weight: bold; */
 }
 .cta h3 {
   color:#212121;
   font-size:30px;
   line-height:38px;
-  font-family: 'Roboto', sans-serif;
 }
-.cta h4 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
-}
+
 /*** CTA Button ***/
 .cta-inner.cta-btn:after {
   display:none;
@@ -1277,7 +1272,6 @@ header.sticky .header-menu {
 .inner-page-wrapper h1 {
   color: #212121;
   font-size: 35px;
-  font-weight: 700;
   line-height: 48px;
   margin: 10px 0 30px 0;
   text-transform: uppercase;
@@ -1304,165 +1298,6 @@ header.sticky .header-menu {
   width: 80%;
 }
 
-/*
-================================================
-18. Gallery
-================================================
-*/
-.gallery-wrapper {
-	padding: 50px 0 160px;
-}
-.gallery-section .gallery-content {
-	width: 100%;
-	float: left;
-}
-.gallery-section .gallery-caption {
-	list-style-type: none;
-	margin: 30px 0 0;
-	float: left;
-	position: relative;
-	overflow: hidden;
-}
-.gallery-section .gallery-caption:hover img {
-	opacity: 1;
-}
-.gallery-section .gallery-caption .caption {
-	cursor: pointer;
-	position: absolute;
-	opacity: 0;
-	-webkit-transition: all .45s ease-in-out;
-	-moz-transition: all .45s ease-in-out;
-	-o-transition: all .45s ease-in-out;
-	-ms-transition: all .45s ease-in-out;
-	transition: all .45s ease-in-out;
-}
-.gallery-section .gallery-caption:hover .caption {
-	opacity: 1;
-}
-.gallery-section .gallery-caption img {
-	margin: 0;
-	padding: 0;
-	float: left;
-	z-index: 4;
-	-webkit-transition: all .25s ease-in-out;
-	-moz-transition: all .25s ease-in-out;
-	-o-transition: all .25s ease-in-out;
-	-ms-transition: all .25s ease-in-out;
-	transition: all .25s ease-in-out;
-}
-.gallery-section .gallery-caption .blur {
-	background-color: rgba(0,0,0,.65);
-	z-index: 5;
-	position: absolute;
-	padding: 30px;
-}
-.gallery-section .gallery-caption .caption-text h1 {
-	font-size: 18px;
-	font-family: "Oswald";
-	color: rgb(255, 255, 255);
-	text-transform: uppercase;
-	line-height: 1.889;
-	text-align: right;
-	right: 40px;
-	letter-spacing: 4px;
-}
-.gallery-section .gallery-caption .caption-text {
-	z-index: 10;
-	color: #fff;
-	position: absolute;
-	text-align: center;
-}
-.gallery-section .gallery-caption .caption-text .gallery_caption_text span {
-	font-family: Oswald, sans-serif;
-	letter-spacing: 5px;
-	font-weight: 400;
-	position: absolute;
-	bottom: 5%;
-	right: 10%;
-	color: #585745;
-	font-size: 11px;
-	font-family: "Oswald";
-	color: rgb(238, 238, 238);
-	text-transform: uppercase;
-	line-height: 3.091;
-	text-align: right;
-	position: absolute;
-}
-.gallery-section .gallery-caption .caption-text .gallery_caption_icon span.fa-search {
-	border-style: solid;
-	border-width: 5px;
-	border-color: #444;
-	opacity: .9;
-	width: 69px;
-	height: 69px;
-	position: absolute;
-	top: 43%;
-	display: inline-table;
-	padding: 20px;
-	right: 40%;
-	left: auto;
-	border-radius: 50%;
-	-webkit-box-shadow: 0 0 5px 7px #222;
-	-moz-box-shadow: 0 0 5px 7px #222;
-	box-shadow: 0 0 5px 7px #222;
-	background: #333;
-	font-size: 24px;
-	color: #fff;
-	line-height: 1.083;
-	text-align: right;
-}
-.gallery-section .owl-nav {
-	text-align: center;
-	float: left;
-	width: 100%;
-}
-.gallery-section .owl-prev {
-	width: 50%;
-	text-align: right;
-	float: left;
-}
-.gallery-section .owl-next {
-	width: 50%;
-	text-align: left;
-	float: left;
-}
-.gallery-section .owl-nav .gallery_prev_div {
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(225, 225, 225);
-	background-color: rgba(225, 225, 225, 0);
-	opacity: 0.75;
-	width: 100px;
-	height: 42px;
-	padding: 8px;
-	margin-right: 20px;
-	text-align: left;
-	float: right;
-}
-.gallery-section .owl-nav .gallery_prev_div .fa {
-	margin-left: 5px;
-	margin-right: 10px;
-}
-.gallery-section .owl-nav .gallery_next_div {
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(225, 225, 225);
-	background-color: rgba(225, 225, 225, 0);
-	opacity: 0.75;
-	width: 100px;
-	height: 42px;
-	padding: 8px;
-	margin-right: 20px;
-	text-align: right;
-	float: left;
-}
-.gallery-section .owl-nav .gallery_next_div .fa {
-	margin-right: 5px;
-	margin-left: 10px;
-}
-.gallery-section .owl-stage-outer {
-	margin-bottom: 30px;
-}
 /*
 ================================================
 19. FAQ Wrapper
@@ -1796,7 +1631,7 @@ header.sticky .header-menu {
  font-weight:300;
 }
 .search-wrapper h3 span {
- font-weight:700;
+ font-weight:500;
  display:block;
  font-size:40px;
 }
@@ -1853,7 +1688,6 @@ footer h4::before {
 footer h4 {
   color: #fff;
   font-size: 18px;
-  font-weight: 700;
   margin: 26px 0 28px;
   padding-bottom: 5px;
   position: relative;
@@ -1946,7 +1780,6 @@ footer .address ul li::before {
 }
 .footer-cta-wrapper h3 {
   color:#ffcb36;
-  font-weight:700;
   font-size:22px;
   text-transform:uppercase;
   margin:0 0 5px;
@@ -2388,4 +2221,9 @@ footer .address ul li::before {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+#total-cost {
+  font-weight: 700;
+  color: green;
 }

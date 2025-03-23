@@ -64,7 +64,7 @@ class QuotationAPIView(APIView):
             hardware_cost +
             labour_cost
         )
-        print(extra_circuits)
+
         return {
             'extra_circuits_cost': extra_circuits_cost,
             'measurement_cost': MEASUREMENT_COST,

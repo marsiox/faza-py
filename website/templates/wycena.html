@@ -1,3 +1,5 @@
+{% load currency %}
+
 <div class="inner-page-wrapper">
   <div class="container">
     <!-- Loading Modal -->
@@ -6,7 +8,7 @@
     <div id="quotation-form-wrapper">
       <h1>Wyceń koszt nowej instalacji elektrycznej</h1>
       <div class="alert alert-info">
-        <h4>Wypełnij poniższy formularz, aby oszacować cenę nowej instalacji elektrycznej w Twoim lokalu.</h4>
+        Wypełnij poniższy formularz, aby oszacować cenę nowej instalacji elektrycznej w Twoim lokalu
       </div>
 
       <form class="form-horizontal faza-form" id="quotation-form">
@@ -89,7 +91,7 @@
           <div class="alert alert-info">
             Ceny nie zawierają podatku VAT i są cenami orientacyjnymi, mogą ulec zmianie w zależności od indywidualnych warunków instalacji.
           </div>
-          <h3>Twoja szacunkowa wycena wynosi: <b><span id="total-cost">{{ total_cost }}</span> zł</b></h3>
+          <h3>Twoja szacunkowa wycena wynosi: <span id="total-cost">{{ total_cost }}</span></h3>
           <br/>
           <h4>Skład kosztów:</h4>
           <table class="table table-hover">
@@ -143,6 +145,20 @@
     document.getElementById('lights-value').innerText = this.value;
   });
 
+  function format_price_polish(amount) {
+    // Ensure the amount is a number
+    if (isNaN(amount)) return amount;
+
+    // Convert to a fixed 2-decimal string
+    const formatted = parseFloat(amount).toFixed(2);
+
+    // Replace the decimal point with a comma and add spaces for thousands
+    return formatted.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + " zł";
+  }
+
+  // Example usage:
+  console.log(format_price_polish(12345.3)); // Output: "12 345,30"
+
   function showLoadingModal() {
     document.getElementById('loader-wrapper').style.display = 'block';
   }
@@ -163,12 +179,12 @@
       .then(data => {
         hideLoadingModal(); // Hide the loading modal
         if (data.priceBreakdown) {
-          document.getElementById('distribution-board-cost').innerText = data.priceBreakdown.distribution_board_cost;
-          document.getElementById('hardware-cost').innerText = data.priceBreakdown.hardware_cost;
-          document.getElementById('extra-circuits-cost').innerText = data.priceBreakdown.extra_circuits_cost;
-          document.getElementById('measurement-cost').innerText = data.priceBreakdown.measurement_cost;
-          document.getElementById('labour-cost').innerText = data.priceBreakdown.labour_cost;
-          document.getElementById('total-cost').innerText = data.priceBreakdown.total_cost;
+          document.getElementById('distribution-board-cost').innerText = format_price_polish(data.priceBreakdown.distribution_board_cost);
+          document.getElementById('hardware-cost').innerText = format_price_polish(data.priceBreakdown.hardware_cost);
+          document.getElementById('extra-circuits-cost').innerText = format_price_polish(data.priceBreakdown.extra_circuits_cost);
+          document.getElementById('measurement-cost').innerText = format_price_polish(data.priceBreakdown.measurement_cost);
+          document.getElementById('labour-cost').innerText = format_price_polish(data.priceBreakdown.labour_cost);
+          document.getElementById('total-cost').innerText = format_price_polish(data.priceBreakdown.total_cost);
           document.getElementById('quotation-form-wrapper').style.display = 'none';
           document.getElementById('quotation-result').style.display = 'block';
         } else {
