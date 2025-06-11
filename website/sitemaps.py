@@ -1,9 +1,11 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
+from django.conf import settings
 
 class StaticViewSitemap(Sitemap):
     priority = 0.5
     changefreq = "monthly"
+    protocol = 'https'  # Force HTTPS protocol
 
     def items(self):
       return [
